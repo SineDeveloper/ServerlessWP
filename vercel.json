@@ -1,42 +1,26 @@
 {
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
   "rewrites": [
     {
-      "bk_source": "/(.+)\\.(css|js|svg|png|gif|jpg|jpeg|webp|woff|woff2|ico|otf)",
-      "bk_destination": "/wp/$1.$2",
-      "source": "/(.*)",
-      "dest": "/api/index.php"
+      "source": "/(.+)\\.(css|js|svg|png|gif|jpg|jpeg|webp|woff|woff2|ico|otf)",
+      "destination": "/wp/$1.$2"
     },
     {
       "source": "/(.*)",
-      "destination": "/api/index.js"
+      "destination": "/api/index.php"
     }
   ],
   "headers": [
     {
-      "source": "/(.+)\\.(css|js|svg|png|gif|jpg|jpeg|webp|woff|woff2|ico|otf)",
+      "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "max-age=864000, s-maxage=864000"
-        }
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
-  ],
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "wp/**",
-      "maxDuration": 60
-    },
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/index.php" }
-  ],
-  "build": {
-    "env": {
-      "NODEJS_AWS_HANDLER_NAME": "handler"
-    }
-  }
+  ]
 }
