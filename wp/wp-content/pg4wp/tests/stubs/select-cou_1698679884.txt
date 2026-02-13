@@ -1,1 +1,0 @@
-{"mysql":"SELECT COUNT(*) FROM wp_postmeta WHERE meta_key = '_encloseme' AND post_id = 55","postgresql":"SELECT COUNT(*) FROM wp_postmeta WHERE meta_key = '_encloseme' AND post_id = 55"}

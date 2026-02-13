@@ -1,1 +1,0 @@
-{"mysql":"SELECT * FROM wp_posts WHERE ID = 55 LIMIT 1","postgresql":"SELECT * FROM wp_posts WHERE \"ID\" = 55 LIMIT 1"}
