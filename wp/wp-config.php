@@ -1,4 +1,5 @@
 <?php
+define( 'DB_TYPE', 'pgsql' );
 /**
  * The base configuration for WordPress
  *
@@ -101,9 +102,9 @@ define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-if (!isset($_ENV['SKIP_MYSQL_SSL'])) {
-  define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
-}
+// if (!isset($_ENV['SKIP_MYSQL_SSL'])) {
+//   define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
+// }
 
 $_SERVER['HTTPS'] = 'on';
 
