@@ -111,7 +111,7 @@ $table_prefix = isset($_ENV['TABLE_PREFIX']) ? $_ENV['TABLE_PREFIX'] : 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -159,16 +159,6 @@ if (isset($_ENV['SQLITE_S3_BUCKET']) || isset($_ENV['SERVERLESSWP_DATA_SECRET'])
   // Limit revisions.
   define('WP_POST_REVISIONS', 3);
 }
-
-
-// Disable the update checks that trigger the information_schema error
-define( 'WP_AUTO_UPDATE_CORE', false );
-define( 'AUTOMATIC_UPDATER_DISABLED', true );
-
-// Filter out the update checks in memory
-// add_filter( 'pre_site_transient_update_core', '__return_null' );
-// add_filter( 'pre_site_transient_update_plugins', '__return_null' );
-// add_filter( 'pre_site_transient_update_themes', '__return_null' );
 
 
 /* That's all, stop editing! Happy publishing. */
