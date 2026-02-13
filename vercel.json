@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.6.0"
+      "runtime": "vercel-php@0.7.1"
     }
   },
   "rewrites": [
@@ -13,14 +13,6 @@
     {
       "source": "/(.*)",
       "destination": "/api/index.php"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
-      ]
     }
   ]
 }
