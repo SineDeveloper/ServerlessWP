@@ -1,5 +1,4 @@
 <?php
-remove_action( 'wp_version_check', 'wp_version_check' );
 /**
  * The base configuration for WordPress
  *
