@@ -7,6 +7,10 @@
   },
   "rewrites": [
     {
+      "source": "/(.*\\.php)",
+      "destination": "/api/index.php"
+    },
+    {
       "source": "/wp-content/:path*",
       "destination": "/wp/wp-content/:path*"
     },
@@ -17,10 +21,6 @@
     {
       "source": "/wp-admin/:path*",
       "destination": "/wp/wp-admin/:path*"
-    },
-    {
-      "source": "/(.*\\.php)",
-      "destination": "/api/index.php"
     },
     {
       "source": "/(.*)",
