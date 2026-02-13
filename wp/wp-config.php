@@ -1,6 +1,4 @@
 <?php
-remove_action( 'admin_init', '_maybe_update_core' );
-remove_action( 'wp_version_check', 'wp_version_check' );
 /**
  * The base configuration for WordPress
  *
