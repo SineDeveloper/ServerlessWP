@@ -1,5 +1,4 @@
 <?php
-define( 'DB_TYPE', 'pgsql' );
 /**
  * The base configuration for WordPress
  *
@@ -21,24 +20,38 @@ define( 'DB_TYPE', 'pgsql' );
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-if (isset($_ENV['DATABASE'])) {
-  define( 'DB_NAME', $_ENV['DATABASE'] );
-}
+// if (isset($_ENV['DATABASE'])) {
+//   define( 'DB_NAME', $_ENV['DATABASE'] );
+// }
 
-/** Database username */
-if (isset($_ENV['USERNAME'])) {
-  define( 'DB_USER', $_ENV['USERNAME'] );
-}
+// /** Database username */
+// if (isset($_ENV['USERNAME'])) {
+//   define( 'DB_USER', $_ENV['USERNAME'] );
+// }
 
-/** Database password */
-if (isset($_ENV['PASSWORD'])) {
-  define( 'DB_PASSWORD', $_ENV['PASSWORD'] );
-}
+// /** Database password */
+// if (isset($_ENV['PASSWORD'])) {
+//   define( 'DB_PASSWORD', $_ENV['PASSWORD'] );
+// }
 
-/** Database hostname */
-if (isset($_ENV['HOST'])) {
-  define( 'DB_HOST', $_ENV['HOST'] );
-}
+// /** Database hostname */
+// if (isset($_ENV['HOST'])) {
+//   define( 'DB_HOST', $_ENV['HOST'] );
+// }
+
+// Force PG4WP to use PostgreSQL
+define( 'DB_TYPE', 'pgsql' );
+
+// Map your Vercel Env Vars to PG4WP expected constants
+define( 'DB_HOST', $_ENV['HOST'] . ':6543' ); // Force Supabase Pooler Port
+define( 'DB_USER', $_ENV['USERNAME'] );
+define( 'DB_PASSWORD', $_ENV['PASSWORD'] );
+define( 'DB_NAME', $_ENV['DATABASE'] );
+
+// Disable the broken logging globally
+define( 'PG4WP_DEBUG', false );
+define( 'PG4WP_LOG', '/tmp/pg4wp.log' );
+
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
