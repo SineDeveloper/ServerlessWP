@@ -7,11 +7,11 @@
   },
   "rewrites": [
     {
-      "source": "/(wp-content|wp-includes)/(.*)",
+      "source": "/(wp-admin|wp-includes|wp-content)/(.*\\.(css|js|svg|png|gif|jpg|jpeg|webp|woff|woff2|ico|otf|pdf))",
       "destination": "/wp/$1/$2"
     },
     {
-      "source": "/(.*\\.php)(.*)",
+      "source": "/(wp-admin|wp-includes)/(.*\\.php)",
       "destination": "/api/index.php"
     },
     {

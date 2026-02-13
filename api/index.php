@@ -4,6 +4,11 @@ ini_set('display_errors', 0);
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+// If it's a static file that shouldn't be here, let Vercel handle it
+if (preg_match('/\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2)$/', $uri)) {
+    return false;
+}
+
 // Determine the actual file path in the /wp directory
 // If you are at root, use: $file = __DIR__ . '/..' . $uri;
 $file = __DIR__ . '/../wp' . $uri;
