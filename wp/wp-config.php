@@ -169,3 +169,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+
+// Disable the update checks that trigger the information_schema error
+define( 'WP_AUTO_UPDATE_CORE', false );
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+// Filter out the update checks in memory
+add_filter( 'pre_site_transient_update_core', '__return_null' );
+add_filter( 'pre_site_transient_update_plugins', '__return_null' );
+add_filter( 'pre_site_transient_update_themes', '__return_null' );
