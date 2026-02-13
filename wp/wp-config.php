@@ -1,4 +1,5 @@
 <?php
+remove_action( 'wp_version_check', 'wp_version_check' );
 /**
  * The base configuration for WordPress
  *
@@ -166,9 +167,9 @@ define( 'WP_AUTO_UPDATE_CORE', false );
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 // Filter out the update checks in memory
-add_filter( 'pre_site_transient_update_core', '__return_null' );
-add_filter( 'pre_site_transient_update_plugins', '__return_null' );
-add_filter( 'pre_site_transient_update_themes', '__return_null' );
+// add_filter( 'pre_site_transient_update_core', '__return_null' );
+// add_filter( 'pre_site_transient_update_plugins', '__return_null' );
+// add_filter( 'pre_site_transient_update_themes', '__return_null' );
 
 
 /* That's all, stop editing! Happy publishing. */
