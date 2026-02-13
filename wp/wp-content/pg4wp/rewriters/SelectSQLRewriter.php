@@ -41,7 +41,8 @@ class SelectSQLRewriter extends AbstractSQLRewriter
                 return $sql;
             }
 
-            throw new Exception("Unsupported call to information_schema, this probably won't work correctly and needs to be specifically handled, open a github issue with the SQL");
+            // throw new Exception("Unsupported call to information_schema, this probably won't work correctly and needs to be specifically handled, open a github issue with the SQL");
+            return $this->sql; 
         }
 
         $sql = $this->ensureOrderByInSelect($sql);
