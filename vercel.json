@@ -7,11 +7,19 @@
   },
   "rewrites": [
     {
-      "source": "/(wp-admin|wp-includes|wp-content)/(.*\\.(css|js|svg|png|gif|jpg|jpeg|webp|woff|woff2|ico|otf|pdf))",
-      "destination": "/wp/$1/$2"
+      "source": "/wp-content/(.*)",
+      "destination": "/wp/wp-content/$1"
     },
     {
-      "source": "/(wp-admin|wp-includes)/(.*\\.php)",
+      "source": "/wp-includes/(.*)",
+      "destination": "/wp/wp-includes/$1"
+    },
+    {
+      "source": "/wp-admin/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|otf))",
+      "destination": "/wp/wp-admin/$1"
+    },
+    {
+      "source": "/(.*\\.php)",
       "destination": "/api/index.php"
     },
     {
