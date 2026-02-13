@@ -1,13 +1,18 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.1"
+    }
+  },
   "rewrites": [
     {
-      "source": "/wp-content/uploads/(.*)",
-      "destination": "/wp/wp-content/uploads/$1"
+      "source": "/(wp-content|wp-includes)/(.*)",
+      "destination": "/wp/$1/$2"
     },
     {
-      "source": "/(wp-admin|wp-includes|wp-content)/(.*)",
-      "destination": "/wp/$1/$2"
+      "source": "/(.*\\.php)(.*)",
+      "destination": "/api/index.php"
     },
     {
       "source": "/(.*)",
