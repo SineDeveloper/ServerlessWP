@@ -162,16 +162,6 @@ if (isset($_ENV['SQLITE_S3_BUCKET']) || isset($_ENV['SERVERLESSWP_DATA_SECRET'])
   define('WP_POST_REVISIONS', 3);
 }
 
-/* That's all, stop editing! Happy publishing. */
-
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
-}
-
-/** Sets up WordPress vars and included files. */
-require_once ABSPATH . 'wp-settings.php';
-
 
 // Disable the update checks that trigger the information_schema error
 define( 'WP_AUTO_UPDATE_CORE', false );
@@ -181,3 +171,14 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
 add_filter( 'pre_site_transient_update_core', '__return_null' );
 add_filter( 'pre_site_transient_update_plugins', '__return_null' );
 add_filter( 'pre_site_transient_update_themes', '__return_null' );
+
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
