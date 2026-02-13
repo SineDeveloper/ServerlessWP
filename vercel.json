@@ -24,8 +24,14 @@
     "api/index.js": {
       "includeFiles": "wp/**",
       "maxDuration": 60
+    },
+    "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
     }
   },
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/index.php" }
+  ],
   "build": {
     "env": {
       "NODEJS_AWS_HANDLER_NAME": "handler"
