@@ -15,8 +15,8 @@
       "destination": "/wp/wp-includes/:path*"
     },
     {
-      "source": "/wp-admin/:path*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|otf)",
-      "destination": "/wp/wp-admin/:path*.$1"
+      "source": "/wp-admin/:path*",
+      "destination": "/wp/wp-admin/:path*"
     },
     {
       "source": "/(.*\\.php)",

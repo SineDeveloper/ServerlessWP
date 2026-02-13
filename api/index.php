@@ -1,32 +1,25 @@
 <?php
-// Silence the driver log warnings
-ini_set('display_errors', 0);
-
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// If it's an asset, don't let PHP handle it
+// 1. If it's a static asset, stop and let Vercel handle it
 if (preg_match('/\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2)$/', $uri)) {
     return false;
 }
 
-// Determine the actual file path in the /wp directory
-// If you are at root, use: $file = __DIR__ . '/..' . $uri;
+// 2. Map the request to the /wp directory
 $file = __DIR__ . '/../wp' . $uri;
 
-// If the URL is just a directory, look for index.php
+// 3. Handle directory index (e.g., /wp-admin/ -> /wp-admin/index.php)
 if (is_dir($file)) {
     $file = rtrim($file, '/') . '/index.php';
 }
 
-if (file_exists($file) && pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-    // Crucial: Set the script name so WordPress knows where it is
+// 4. If the PHP file exists, execute it
+if (file_exists($file)) {
     $_SERVER['SCRIPT_NAME'] = $uri;
-    $_SERVER['PHP_SELF'] = $uri;
-    $_SERVER['SCRIPT_FILENAME'] = $file;
-    
     require $file;
     exit;
 }
 
-// Fallback to the main index
+// 5. Fallback for permalinks
 require __DIR__ . '/../wp/index.php';
